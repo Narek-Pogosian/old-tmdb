@@ -46,6 +46,7 @@ const Genres = ({ genres, setGenres }: Props) => {
             key={genre.id}
             value={genre.id}
             aria-label={genre.name}
+            title={genre.name}
             className={({ active }) =>
               `cursor-pointer xl:truncate xl:w-auto w-fit h-fit  ${
                 active ? "bg-primary rounded" : ""
