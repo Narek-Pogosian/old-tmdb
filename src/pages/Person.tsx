@@ -32,6 +32,8 @@ const Person = () => {
     }
   );
 
+  console.log(data);
+
   if (isLoading) {
     return <LoadingPage />;
   }
