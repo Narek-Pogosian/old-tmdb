@@ -28,7 +28,7 @@ const Card = ({ img, title, release, vote, mediaType, id }: Props) => {
       </Link>
       <div className="pt-1">
         <Link
-          to={`${mediaType}/${id}`}
+          to={`/${mediaType}/${id}`}
           className="text-sm leading-[2px] font-semibold"
         >
           {title}

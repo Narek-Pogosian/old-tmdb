@@ -11,15 +11,21 @@ const PersonCard = ({ character, id, img, name }: Props) => {
   return (
     <>
       <Link to={`/person/${id}`}>
-        <img
-          src={`https://www.themoviedb.org/t/p/w500/${img}`}
-          alt=""
-          className="w-full duration-200 hover:opacity-70 transit"
-          loading="lazy"
-        />
+        {img ? (
+          <img
+            src={`https://www.themoviedb.org/t/p/w500/${img}`}
+            alt=""
+            className="w-full duration-200 hover:opacity-70 transit"
+            loading="lazy"
+          />
+        ) : (
+          <div className="grid h-full bg-opacity-50 bg-neutral-400 place-content-center">
+            <img src="/no-image.svg" alt="" />
+          </div>
+        )}
       </Link>
       <div className="pt-1">
-        <Link to={`person/${id}`} className="block text-sm font-semibold">
+        <Link to={`/person/${id}`} className="block text-sm font-semibold">
           {name}
         </Link>
         <span className="text-xs text-neutral-200">{character}</span>
