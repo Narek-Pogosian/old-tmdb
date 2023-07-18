@@ -10,7 +10,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-col gap-8 py-4 xl:flex-row">
       <div className="w-full xl:w-fit xl:sticky top-24 h-fit">
-        <MyDisclosure buttonText="Filters" openByDefault={isDesktop}>
+        <MyDisclosure
+          buttonText="Filters"
+          openByDefault={isDesktop}
+          key={String(isDesktop)}
+          // Discolsure only checks the value for the first "paint", so have add key to
+          // get it to open by default on bigger screens.
+        >
           <Filters />
         </MyDisclosure>
       </div>

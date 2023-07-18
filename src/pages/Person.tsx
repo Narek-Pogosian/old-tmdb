@@ -25,7 +25,10 @@ const Person = () => {
           ...data,
           credits: sortAndFilterByPopularity(selectedCredits, 10)
             .slice(0, 15)
-            .filter((v, i, a) => a.findIndex((v2) => v2.id === v.id) === i),
+            .filter(
+              (value, index, array) =>
+                array.findIndex((v2) => v2.id === value.id) === index
+            ),
           // Remove Duplicates
         };
       },
@@ -47,11 +50,17 @@ const Person = () => {
       <>
         <div className="flex flex-col gap-6 lg:gap-20 sm:pt-10 sm:flex-row pb-14">
           <div className="flex-shrink-0 w-64 mx-auto sm:mx-0">
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${data.profile_path}`}
-              alt=""
-              className="w-64 h-fit"
-            />
+            {data.profile_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${data.profile_path}`}
+                alt=""
+                className="w-64 h-fit"
+              />
+            ) : (
+              <div className="grid h-[320px] bg-neutral-200/10 place-content-center">
+                <img src="/no-image.svg" alt="" />
+              </div>
+            )}
           </div>
           <div>
             <h1 className="mb-3 text-3xl font-semibold">{data.name}</h1>

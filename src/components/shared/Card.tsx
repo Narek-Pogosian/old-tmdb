@@ -21,7 +21,7 @@ const Card = ({ img, title, release, vote, mediaType, id }: Props) => {
             loading="lazy"
           />
         ) : (
-          <div className="grid h-full bg-opacity-50 bg-neutral-400 place-content-center">
+          <div className="grid h-[320px] bg-neutral-200/10 place-content-center">
             <img src="/no-image.svg" alt="" />
           </div>
         )}
