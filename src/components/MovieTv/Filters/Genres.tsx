@@ -20,8 +20,10 @@ const Genres = ({ genres, setGenres }: Props) => {
       onChange={setGenres}
       multiple
       as="div"
-      className="relative text-sm"
+      className="relative z-10 text-sm"
     >
+      <p className="mb-2 text-sm font-semibold">Genres</p>
+
       <Listbox.Button className="flex items-center justify-between w-full px-4 py-2 mb-2 rounded shadow bg-background dark:text-white">
         <span>Genres</span>
         <svg
@@ -40,7 +42,7 @@ const Genres = ({ genres, setGenres }: Props) => {
         </svg>
       </Listbox.Button>
 
-      <Listbox.Options className="absolute grid w-full grid-cols-2 gap-1 px-2 py-4 border rounded shadow xl:grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 border-primary bg-background top-10 focus:outline-none">
+      <Listbox.Options className="absolute grid w-full grid-cols-2 gap-1 px-2 py-4 border rounded shadow xl:grid-cols-2 lg:grid-cols-3 border-primary bg-background top-[68px] focus:outline-none">
         {data?.genres.map((genre) => (
           <Listbox.Option
             key={genre.id}
@@ -56,7 +58,7 @@ const Genres = ({ genres, setGenres }: Props) => {
             {({ selected }) => (
               <>
                 <span
-                  className={`block rounded p-1 ${
+                  className={`block rounded py-1 px-2 xl:pr-1    ${
                     selected || genres?.includes(genre.id)
                       ? "font-medium bg-white text-primary"
                       : "font-normal"

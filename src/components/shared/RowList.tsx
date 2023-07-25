@@ -1,23 +1,24 @@
 import type { ReactNode } from "react";
+import LoadingPage from "../LoadingPage";
 
-function RowList<T>({
+function RowList<T extends { id: number }>({
   items,
   render,
+  isLoading,
 }: {
   items: T[] | undefined;
   render: (item: T) => ReactNode;
+  isLoading?: boolean;
 }) {
   return (
-    <div className="relative">
-      <ul className="flex gap-5 fade-in h-[380px] px-[1px] pb-2 overflow-x-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary scrollbar-thumb-rounded-lg">
-        {items?.map((item, index) => (
-          <li key={index} className="flex-shrink-0 w-48">
-            {render(item)}
-          </li>
-        ))}
-        {/* <span className="absolute top-0 right-0 w-16 h-full pointer-events-none bg-gradient-to-r from-transparent via-white/20 to-white/40"></span> */}
-      </ul>
-    </div>
+    <ul className="flex gap-5 fade-in relative h-[375px]  px-[1px] pb-2 overflow-x-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary scrollbar-thumb-rounded-lg">
+      {isLoading && <LoadingPage />}
+      {items?.map((item) => (
+        <li key={item.id} className="flex-shrink-0 w-48">
+          {render(item)}
+        </li>
+      ))}
+    </ul>
   );
 }
 

@@ -12,7 +12,7 @@ type Props = {
 const Card = ({ img, title, release, vote, mediaType, id }: Props) => {
   return (
     <div className="flex flex-col h-full">
-      <Link to={`/${mediaType}/${id}`} className="flex-1">
+      <Link to={`/${mediaType}/${id}`}>
         {img ? (
           <img
             src={`https://www.themoviedb.org/t/p/w500/${img}`}

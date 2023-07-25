@@ -34,17 +34,27 @@ const DetailsInfo = ({
   return (
     <div className="flex flex-col gap-6 md:gap-10 lg:gap-20 md:pt-10 md:flex-row pb-14">
       {isTablet ? (
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${poster}`}
-          alt={title}
-          className="w-64 h-fit"
-          width={256}
-        />
-      ) : (
+        poster ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${poster}`}
+            alt={title}
+            className="w-64 h-fit"
+            width={256}
+          />
+        ) : (
+          <div className="grid h-[320px] w-56 bg-neutral-200/10 place-content-center">
+            <img src="/no-image.svg" alt="" />
+          </div>
+        )
+      ) : backdrop ? (
         <img
           src={`https://image.tmdb.org/t/p/w1000_and_h450_multi_faces/${backdrop}`}
           alt=""
         />
+      ) : (
+        <div className="grid w-full h-44 bg-neutral-200/10 place-content-center">
+          <img src="/no-image.svg" alt="" />
+        </div>
       )}
 
       <div>

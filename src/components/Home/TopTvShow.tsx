@@ -2,18 +2,26 @@ import { useQuery } from "@tanstack/react-query";
 import { getTvShows } from "../../lib/services/tmdb";
 import RowList from "../shared/RowList";
 import Card from "../shared/Card";
+import { useInView } from "react-intersection-observer";
 
 const TopTvShows = () => {
-  const { data } = useQuery(["toptv"], () =>
-    getTvShows("vote_count.gte=300&sort_by=vote_average.desc")
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "20px",
+  });
+
+  const { data, isLoading } = useQuery(
+    ["toptv"],
+    () => getTvShows("vote_count.gte=300&sort_by=vote_average.desc"),
+    { enabled: inView }
   );
 
   return (
-    <div>
+    <div ref={ref}>
       <h2 className="mb-3 text-xl font-bold">Toprated Tv Shows </h2>
-
       <RowList
         items={data?.results}
+        isLoading={isLoading}
         render={(movie) => (
           <Card
             img={movie.poster_path}

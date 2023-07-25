@@ -1,28 +1,32 @@
+import Slider from "rc-slider";
+
 type Props = {
-  minimumVotes: string | null;
   setMinimumVotes: (value: string) => void;
 };
 
-const VoteRange = ({ minimumVotes, setMinimumVotes }: Props) => {
+const VoteRange = ({ setMinimumVotes }: Props) => {
   return (
-    <div>
-      <label
-        htmlFor="user-score"
-        className="mb-1 text-xs font-bold text-lightText dark:text-white"
-      >
-        Minimum Votes 0-500, <span>Currently {minimumVotes || 0}</span>
-      </label>
-      <input
-        className="w-full"
-        type="range"
-        id="minimum-votes"
+    <div className="h-14">
+      <p className="mb-2 text-sm font-semibold text-lightText dark:text-white">
+        Minimum Votes
+      </p>
+
+      <Slider
         min={0}
         max={500}
-        step={20}
-        list="markers"
-        value={minimumVotes ? minimumVotes : 0}
-        aria-valuenow={minimumVotes ? Number(minimumVotes) : 0}
-        onChange={(e) => setMinimumVotes(e.target.value)}
+        onChange={(val) => setMinimumVotes(String(val))}
+        step={50}
+        marks={{
+          0: "0",
+          100: "100",
+          200: "200",
+          300: "300",
+          400: "400",
+          500: "500",
+        }}
+        dotStyle={{ width: "1px", borderRadius: 0 }}
+        handleStyle={{ opacity: 1 }}
+        dots
       />
     </div>
   );

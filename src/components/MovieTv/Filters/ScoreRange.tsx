@@ -1,27 +1,23 @@
+import Slider from "rc-slider";
+
 type Props = {
-  userScore: string | null;
   setUserScore: (value: string) => void;
 };
 
-const ScoreRange = ({ userScore, setUserScore }: Props) => {
+const ScoreRange = ({ setUserScore }: Props) => {
   return (
-    <div>
-      <label
-        htmlFor="user-score"
-        className="mb-1 text-xs font-bold text-lightText dark:text-white"
-      >
-        User Score 0-10, <span>Currently {userScore || 0}</span>
-      </label>
-      <input
-        className="w-full"
-        type="range"
-        id="user-score"
+    <div className="h-14">
+      <p className="mb-2 text-sm font-semibold">Minimum User Score</p>
+
+      <Slider
         min={0}
         max={10}
-        list="markers"
-        value={userScore ? userScore : 0}
-        aria-valuenow={userScore ? Number(userScore) : 0}
-        onChange={(e) => setUserScore(e.target.value)}
+        onChange={(val) => setUserScore(String(val))}
+        step={1}
+        marks={{ 0: "0", 2: "2", 4: "4", 6: "6", 8: "8", 10: "10" }}
+        dotStyle={{ width: "1px", borderRadius: 0 }}
+        handleStyle={{ opacity: 1 }}
+        dots
       />
     </div>
   );

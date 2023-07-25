@@ -26,16 +26,14 @@ const Person = () => {
           credits: sortAndFilterByPopularity(selectedCredits, 10)
             .slice(0, 15)
             .filter(
+              // Remove Duplicates
               (value, index, array) =>
                 array.findIndex((v2) => v2.id === value.id) === index
             ),
-          // Remove Duplicates
         };
       },
     }
   );
-
-  console.log(data);
 
   if (isLoading) {
     return <LoadingPage />;
