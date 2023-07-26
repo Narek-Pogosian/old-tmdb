@@ -2,9 +2,10 @@ import Slider from "rc-slider";
 
 type Props = {
   setMinimumVotes: (value: string) => void;
+  minimumVotes: string | null;
 };
 
-const VoteRange = ({ setMinimumVotes }: Props) => {
+const VoteRange = ({ setMinimumVotes, minimumVotes }: Props) => {
   return (
     <div className="h-14">
       <p className="mb-2 text-sm font-semibold text-lightText dark:text-white">
@@ -14,6 +15,7 @@ const VoteRange = ({ setMinimumVotes }: Props) => {
       <Slider
         min={0}
         max={500}
+        value={Number(minimumVotes)}
         onChange={(val) => setMinimumVotes(String(val))}
         step={50}
         marks={{

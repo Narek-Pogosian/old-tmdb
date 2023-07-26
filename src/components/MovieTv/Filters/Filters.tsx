@@ -57,8 +57,11 @@ const Filters = () => {
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1 sm:gap-x-8">
       <SortOptions sortValue={sortValue} setSortValue={setSortValue} />
       <Genres genres={genres} setGenres={setGenres} />
-      <ScoreRange setUserScore={setUserScore} />
-      <VoteRange setMinimumVotes={setMinimumVotes} />
+      <ScoreRange setUserScore={setUserScore} userScore={userScore} />
+      <VoteRange
+        setMinimumVotes={setMinimumVotes}
+        minimumVotes={minimumVotes}
+      />
       <button
         onClick={setNewSearchParams}
         className="py-2 mt-4 text-lg font-semibold transition-opacity rounded-full xl:col-span-1 sm:col-span-2 hover:opacity-70 bg-secondary"
