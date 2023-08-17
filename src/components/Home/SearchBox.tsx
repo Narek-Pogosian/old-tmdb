@@ -8,13 +8,13 @@ import { useQuery } from "@tanstack/react-query";
 
 const SearchBox = () => {
   const [query, setQuery] = useState("");
-  const { data: results } = useQuery(
+  const { data: results, isFetching } = useQuery(
     ["search", query],
     () => getSearchResults(query),
     {
       enabled: !!query.trim(),
       select: (data) => sortAndFilterByPopularity(data.results, 5),
-      cacheTime: 0,
+      cacheTime: 1000 * 60,
     }
   );
 
@@ -33,7 +33,7 @@ const SearchBox = () => {
         className="w-full px-6 py-3 transition-shadow duration-300 rounded-full outline-none focus:ring-tertiary focus:ring-1 bg-primary"
         value={query}
       />
-      <Combobox.Options className="absolute w-full overflow-y-scroll -translate-x-1/2 rounded max-h-80 sm:left-0 sm:translate-x-0 left-1/2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-background bg-primary top-14">
+      <Combobox.Options className="absolute w-full overflow-y-scroll -translate-x-1/2 rounded max-h-80 sm:left-0 sm:translate-x-0 left-1/2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white bg-primary top-14">
         {results && results.length > 0 && query.trim()
           ? results?.map((item) => (
               <Combobox.Option
@@ -61,9 +61,8 @@ const SearchBox = () => {
                 </p>
               </Combobox.Option>
             ))
-          : query.trim().length > 1 && (
-              <p className="px-2 py-1">Nothing Found</p>
-            )}
+          : query.trim().length > 1 &&
+            !isFetching && <p className="px-2 py-1">Nothing Found</p>}
       </Combobox.Options>
     </Combobox>
   );
