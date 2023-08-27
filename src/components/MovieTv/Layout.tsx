@@ -14,8 +14,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
           buttonText="Filters"
           openByDefault={isDesktop}
           key={String(isDesktop)}
-          // Discolsure only checks the value for the first "paint", so have add key to
-          // get it to open by default on bigger screens.
+          // Disclosure only checks the value for the first "paint",isDekstop is always false first so have added key so
+          // that it remounts on desktop with correct value.
         >
           <Filters />
         </MyDisclosure>
