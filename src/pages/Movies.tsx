@@ -16,17 +16,21 @@ const Movies = () => {
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
     useInfiniteQuery({
       queryKey: ["movies", queryString],
+
       queryFn: ({ pageParam = 1 }) =>
         getMovies(`page=${String(pageParam)}&${queryString}`),
-      getNextPageParam: (lastPage) => {
-        if (lastPage.page === lastPage.total_pages) {
-          return false;
+
+      getNextPageParam: (previousResponse) => {
+        if (previousResponse.page === previousResponse.total_pages) {
+          return undefined;
         }
-        return lastPage.page + 1;
+        return previousResponse.page + 1;
       },
     });
 
+  // Data is an object with pages and pageParams, pages is array of each response
   const movies = data?.pages.reduce((acc, page) => {
+    // creates and array of movies
     return [...acc, ...page.results];
   }, [] as Movie[]);
 
