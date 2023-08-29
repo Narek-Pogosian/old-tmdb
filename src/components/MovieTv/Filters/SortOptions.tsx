@@ -1,6 +1,5 @@
 import { Listbox } from "@headlessui/react";
-import { sortOptions } from "../../../lib/data/sortOptions";
-import { SortOptionType } from "../../../types/type";
+import { SortOptionType, sortOptions } from "../../../lib/data/sortOptions";
 
 type Props = {
   sortValue: SortOptionType;
