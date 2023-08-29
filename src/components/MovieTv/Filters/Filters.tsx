@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { sortOptions } from "../../../lib/data/sortOptions";
-import { SortOptionType } from "../../../types/type";
+import { SortOptionType, sortOptions } from "../../../lib/data/sortOptions";
 import SortOptions from "./SortOptions";
 import VoteRange from "./VoteRange";
 import ScoreRange from "./ScoreRange";
 import Genres from "./Genres";
 
+type RangeInputType = string | null;
+
 const Filters = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // sortValue is object
   const [sortValue, setSortValue] = useState<SortOptionType>(sortOptions[0]!);
   const [genres, setGenres] = useState<number[]>([]);
-  const [userScore, setUserScore] = useState<string | null>(null);
-  const [minimumVotes, setMinimumVotes] = useState<string | null>(null);
+  const [userScore, setUserScore] = useState<RangeInputType>(null);
+  const [minimumVotes, setMinimumVotes] = useState<RangeInputType>(null);
 
   // Gets the states from the url params
   useEffect(() => {

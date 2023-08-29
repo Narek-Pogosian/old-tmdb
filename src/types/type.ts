@@ -2,12 +2,6 @@ export type TimeWindow = "day" | "week";
 
 export type MediaType = "movie" | "tv" | "person";
 
-export interface SortOptionType {
-  id: number;
-  text: string;
-  value: string;
-}
-
 // ? --------- Genre --------
 export interface Genre {
   id: number;
