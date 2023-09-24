@@ -1,5 +1,7 @@
 # TMDB Movies and Tv Shows
-This project is built with React and powered TMDB API, styling is done with Tailwind CSS and Headless UI.
+
+## Tech stack
+React, The Movie DB API, Tanstack-Query, Tailwind CSS, Headless UI
 
 ## View
 <a taget="_blank" href="https://tmdb-wine-theta.vercel.app/">View here</a>
