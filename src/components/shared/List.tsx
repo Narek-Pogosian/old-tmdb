@@ -17,23 +17,3 @@ function List<T extends { id: number }>({
 }
 
 export default List;
-
-// function List<T extends { id: number }>({
-//   items,
-//   render,
-//   className,
-// }: React.DetailedHTMLProps<
-//   React.HTMLAttributes<HTMLUListElement>,
-//   HTMLUListElement
-// > & {
-//   items: T[];
-//   render: (item: T) => ReactNode;
-// }) {
-//   return (
-//     <ul className={className}>
-//       {items.map((item) => (
-//         <li key={item.id}>{render(item)}</li>
-//       ))}
-//     </ul>
-//   );
-// }
