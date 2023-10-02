@@ -10,7 +10,7 @@ body,
 }
 
 body {
-  @apply text-white bg-background;
+  @apply overflow-y-scroll text-white bg-background;
 }
 
 .balance {
