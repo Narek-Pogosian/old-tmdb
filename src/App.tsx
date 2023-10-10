@@ -18,6 +18,7 @@ const App = () => {
         <ScrollToTop />
         <Routes>
           <Route index element={<Home />} />
+          {/* Make sure routes are same as mediatype in types */}
           <Route path="/movie" element={<Movies />} />
           <Route path="/tv" element={<TvShows />} />
           <Route path="/movie/:id" element={<MovieDetails />} />

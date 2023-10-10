@@ -17,6 +17,8 @@ const PersonCard = ({ character, id, img, name }: Props) => {
             alt=""
             className="w-full duration-200 hover:opacity-70 transit"
             loading="lazy"
+            width={192}
+            height={288}
           />
         ) : (
           <div className="grid h-[288px] bg-neutral-200/10 place-content-center">

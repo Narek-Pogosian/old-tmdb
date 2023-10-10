@@ -38,8 +38,9 @@ const DetailsInfo = ({
           <img
             src={`https://image.tmdb.org/t/p/w500/${poster}`}
             alt={title}
-            className="w-64 h-fit"
             width={256}
+            height={384}
+            className="h-fit"
           />
         ) : (
           <div className="grid h-[320px] w-56 bg-neutral-200/10 place-content-center">
@@ -49,6 +50,8 @@ const DetailsInfo = ({
       ) : backdrop ? (
         <img
           src={`https://image.tmdb.org/t/p/w1000_and_h450_multi_faces/${backdrop}`}
+          width={1000}
+          height={450}
           alt=""
         />
       ) : (

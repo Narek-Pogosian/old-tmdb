@@ -52,7 +52,9 @@ const Person = () => {
               <img
                 src={`https://image.tmdb.org/t/p/w300/${data.profile_path}`}
                 alt=""
-                className="w-64 h-fit"
+                width={256}
+                height={384}
+                className="h-fit"
               />
             ) : (
               <div className="grid h-[320px] bg-neutral-200/10 place-content-center">

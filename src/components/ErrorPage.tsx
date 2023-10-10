@@ -6,7 +6,6 @@ const ErrorPage = () => {
       <h1 className="mb-4 text-transparent text-8xl bg-gradient-to-r from-secondary to-tertiary bg-clip-text w-fit">
         Oops!
       </h1>
-      {/* <h2 className="text-3xl mb-7">Something went wrong</h2> */}
       <p className="max-w-md mb-10 text-xl text-neutral-200 balance">
         Either something went wrong or the content you are looking for doesn't
         exist.

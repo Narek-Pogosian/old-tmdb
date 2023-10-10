@@ -17,7 +17,7 @@ const Card = ({ img, title, release, vote, mediaType, id }: Props) => {
           <img
             src={`https://www.themoviedb.org/t/p/w500/${img}`}
             alt=""
-            className="w-full duration-200 hover:opacity-70 transit"
+            className="w-full duration-200 hover:opacity-70 "
             width={192}
             height={288}
             loading="lazy"
